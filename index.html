@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BerlinAGI</title>
+    
+    <!-- Fonts: Inter, IBM Plex Sans, JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'warm-white': '#FAFAF8',
+              'warm-gray': '#F0EFEB',
+              'charcoal': '#1A1A1A',
+              'slate-gray': '#5C5C5C',
+              'berlin-blue': '#2D5A8A',
+              'amber-gold': '#C9A227',
+              'soft-gray': '#E0DED8',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['IBM Plex Sans', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            maxWidth: {
+              'container': '1200px',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Defining CSS variables for reference if needed outside Tailwind utility classes */
+      :root {
+        --color-background: #FAFAF8;
+        --color-surface: #F0EFEB;
+        --color-text-primary: #1A1A1A;
+        --color-text-secondary: #5C5C5C;
+        --color-accent-primary: #2D5A8A;
+        --color-accent-secondary: #C9A227;
+        --color-border: #E0DED8;
+      }
+      body {
+        background-color: var(--color-background);
+        color: var(--color-text-primary);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client?deps=react@18.2.0",
+    "react-router-dom": "https://esm.sh/react-router-dom@6.20.0?deps=react@18.2.0,react-dom@18.2.0",
+    "lucide-react": "https://esm.sh/lucide-react@0.468.0?deps=react@18.2.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
