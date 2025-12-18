@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { Container } from '../layout/Container';
 import { H2 } from '../typography/Typography';

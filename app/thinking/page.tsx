@@ -1,9 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Container } from '../layout/Container';
-import { articles } from '../../data/articles';
+import Link from 'next/link';
+import { Container } from '@/components/layout/Container';
+import { articles } from '@/data/articles';
 
-export const ThinkingIndex = () => {
+export default function ThinkingPage() {
   return (
     <div className="bg-warm-white min-h-screen pt-32 pb-20">
       <Container>
@@ -18,9 +17,9 @@ export const ThinkingIndex = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {articles.map((item, index) => (
-             <Link 
-              key={index} 
-              to={`/thinking/${item.slug}`}
+            <Link
+              key={index}
+              href={`/thinking/${item.slug}`}
               className="group block bg-warm-white border border-soft-gray rounded-lg p-8 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg flex flex-col items-start h-full"
             >
               <div className="mb-3">
@@ -51,4 +50,4 @@ export const ThinkingIndex = () => {
       </Container>
     </div>
   );
-};
+}

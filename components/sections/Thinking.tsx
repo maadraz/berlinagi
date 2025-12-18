@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Container } from '../layout/Container';
 import { articles } from '../../data/articles';
 
@@ -9,8 +9,8 @@ export const Thinking = () => {
       <Container>
         {/* Header */}
         <div className="mb-12">
-          <Link 
-            to="/thinking" 
+          <Link
+            href="/thinking"
             className="inline-block text-berlin-blue font-semibold tracking-widest uppercase text-sm mb-6 hover:underline"
           >
             Thinking
@@ -20,9 +20,9 @@ export const Thinking = () => {
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {articles.map((item, index) => (
-            <Link 
-              key={index} 
-              to={`/thinking/${item.slug}`}
+            <Link
+              key={index}
+              href={`/thinking/${item.slug}`}
               className="group block bg-warm-white border border-soft-gray rounded-lg p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
             >
               {/* Top Label */}

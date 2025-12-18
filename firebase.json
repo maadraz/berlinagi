@@ -1,26 +1,14 @@
 {
-  "apphosting": [
-    {
-      "backendId": "berlinagi-site",
-      "rootDir": "/",
-      "ignore": [
-        "node_modules",
-        ".git",
-        "firebase-debug.log",
-        "firebase-debug.*.log",
-        "functions"
-      ]
-    },
-    {
-      "backendId": "berlinagi-site",
-      "rootDir": "/",
-      "ignore": [
-        "node_modules",
-        ".git",
-        "firebase-debug.log",
-        "firebase-debug.*.log",
-        "functions"
-      ]
-    }
-  ]
+  "apphosting": {
+    "backendId": "berlinagi-site",
+    "rootDir": "/",
+    "ignore": [
+      "node_modules",
+      ".git",
+      ".next",
+      "out",
+      "firebase-debug.log",
+      "firebase-debug.*.log"
+    ]
+  }
 }

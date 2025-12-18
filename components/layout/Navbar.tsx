@@ -1,13 +1,14 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { usePathname } from 'next/navigation';
 import { Container } from './Container';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
-  const location = useLocation();
-  const navigate = useNavigate();
-  const isHome = location.pathname === '/';
+  const pathname = usePathname();
+  const isHome = pathname === '/';
 
   const navLinks = [
     { label: 'Approach', href: '#approach', type: 'anchor' },
@@ -55,7 +56,7 @@ export const Navbar = () => {
     setIsOpen(false);
 
     if (link.type === 'route') {
-      navigate(link.href);
+      window.location.href = link.href;
       return;
     }
 
@@ -74,18 +75,8 @@ export const Navbar = () => {
         });
       }
     } else {
-      // If not home, navigate home then scroll (simple hash nav)
-      // For simplicity in this iteration, just go home.
-      navigate('/');
-      // Timeout to allow render then scroll could be added here, 
-      // but native browser hash handling usually works if URL has hash.
-      setTimeout(() => {
-        const targetId = link.href.replace('#', '');
-        const element = document.getElementById(targetId);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
+      // Navigate home with hash
+      window.location.href = `/${link.href}`;
     }
   };
 
@@ -94,7 +85,7 @@ export const Navbar = () => {
     if (isHome) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      navigate('/');
+      window.location.href = '/';
     }
     setIsOpen(false);
   };
@@ -115,7 +106,7 @@ export const Navbar = () => {
         <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => {
             const isActive = isHome && activeSection === link.href.substring(1);
-            const isRouteActive = !isHome && link.type === 'route' && location.pathname.startsWith(link.href);
+            const isRouteActive = !isHome && link.type === 'route' && pathname.startsWith(link.href);
             
             return (
               <a
@@ -164,7 +155,7 @@ export const Navbar = () => {
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link)}
                 className={`text-lg font-medium block cursor-pointer ${
-                  (isHome && activeSection === link.href.substring(1)) || (!isHome && link.type === 'route' && location.pathname.startsWith(link.href))
+                  (isHome && activeSection === link.href.substring(1)) || (!isHome && link.type === 'route' && pathname.startsWith(link.href))
                     ? 'text-berlin-blue'
                     : 'text-charcoal hover:text-berlin-blue'
                 }`}
