@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { Container } from '../layout/Container';
 import { H2, Body } from '../typography/Typography';
@@ -50,9 +51,9 @@ const coreTeam: TeamMember[] = [
     bio: "Leads architecture research at BerlinAGI. Focus on modular approaches to scaling intelligence, with published work on layer fusion methods and cultural alignment in large language models.",
     previously: "Microsoft, American University in Cairo",
     achievements: [
-      "Designed novel Depth-Wise Attention method for efficient model adaptation",
-      "Research on LLM cultural alignment across languages and regions",
-      "Adapted transformer architectures for multilingual zero-shot transfer"
+      // "Designed novel Depth-Wise Attention method for efficient model adaptation",
+      // "Research on LLM cultural alignment across languages and regions",
+      // "Adapted transformer architectures for multilingual zero-shot transfer"
     ],
     publications: [
       { title: "Investigating Cultural Alignment of Large Language Models", venue: "ACL", year: 2024, url: "https://arxiv.org/abs/2402.13231" },
@@ -71,17 +72,17 @@ const coreTeam: TeamMember[] = [
     photo: "/images/team/mahmoud-draz.jpg",
     initials: "MD",
     oneLiner: "Distributed AI research at TU Berlin, founder of EnergyAI",
-    expertise: ["Distributed AI", "Energy Systems", "Research-to-Product"],
+    expertise: ["Distributed AI", "Research-to-Product"],
     bio: "Bridges research and industry at BerlinAGI. PhD researcher at TU Berlin's DAI-Labor (Germany's largest distributed AI laboratory), founder of EnergyAI Berlin GmbH, with experience at Accenture and Volkswagen.",
     previously: "TU Berlin DAI-Labor, EnergyAI (Founder), Accenture, Volkswagen, Hubject",
     achievements: [
-      "Founded EnergyAI Berlin GmbH — AI startup for energy networks",
-      "Leads national and EU research projects bridging research and industry",
-      "Developed Master's course on ML and optimization for energy systems"
+      // "Founded EnergyAI Berlin GmbH — AI startup that builds AI native operating system for energy networks",
+      // "Leads national and EU research projects bridging research and industry",
+      // "Developed Master's course on ML and optimization for energy systems"
     ],
     publications: [
-      { title: "Probabilistic Risk Assessment in Power Systems with High Wind Energy Penetration", venue: "IEEE", year: 2024, url: null },
-      { title: "A Framework for Integrating Intelligent Mobile Energy Storage", venue: "ISGT Europe", year: 2019, url: null }
+      { title: "Probabilistic Risk Assessment in Power Systems with High Wind Energy Penetration", venue: "IEEE", year: 2024, url: "https://ieeexplore.ieee.org/document/10684197" },
+      { title: "Optimal Energy Supply Scheduling for a Single Household: Integrating Machine Learning for Power Forecasting", venue: "ISGT Europe", year: 2019, url: "https://ieeexplore.ieee.org/abstract/document/8905536" }
     ],
     links: {
       linkedin: "https://www.linkedin.com/in/mdraz/",
@@ -96,12 +97,12 @@ const coreTeam: TeamMember[] = [
     initials: "ES",
     oneLiner: "Transformer inference engines at Microsoft, shipped to 500M+ users",
     expertise: ["LLM Inference", "C++ Systems", "Performance Optimization"],
-    bio: "Leads inference optimization at BerlinAGI. At Microsoft, built and optimized the NLP inference engine powering SwiftKey, Windows keyboard, and Samsung — serving 500M+ users with transformer-based models.",
+    bio: "Works on inference optimization at BerlinAGI. At Microsoft, built and optimized the NLP inference engine powering SwiftKey, Windows keyboard, and Samsung — serving 500M+ users with transformer-based models.",
     previously: "Microsoft (SwiftKey NLP Engine)",
     achievements: [
-      "Adapted production inference engine for GPT-2 and modern transformer architectures",
-      "Achieved 15% reduction in inference latency through performance optimization",
-      "Improved prediction accuracy by 5% via hyperparameter optimization tooling"
+      // "Adapted production inference engine for GPT-2 and modern transformer architectures",
+      // "Achieved 15% reduction in inference latency through performance optimization",
+      // "Improved prediction accuracy by 5% via hyperparameter optimization tooling"
     ],
     publications: [],
     links: {
@@ -115,17 +116,16 @@ const coreTeam: TeamMember[] = [
     photo: "/images/team/david-zumaquero.jpg",
     initials: "DZ",
     oneLiner: "Scalable data and AI pipelines, Mathematics background",
-    expertise: ["Data Pipelines", "Spark/Databricks", "ML Infrastructure"],
-    bio: "Leads data infrastructure at BerlinAGI. 5+ years building scalable AI solutions with Databricks, Spark, and Azure. Strong mathematical foundation with Master's in Mathematics from Interuniversity of Andalucía.",
-    previously: "EnergyAI Berlin, Accenture",
+    expertise: ["Data Pipelines", "ML Infrastructure"],
+    bio: "Builds data infrastructure at BerlinAGI. 5+ years building scalable AI solutions with Databricks, Spark, and Azure. Strong mathematical foundation with Master's in Mathematics from Interuniversity of Andalucía.",
+    previously: "Accenture & PWC",
     achievements: [
-      "Implements scalable data pipelines for AI systems using Databricks and Spark",
-      "Master's degree in Mathematics — brings rigorous analytical thinking"
+      // "Implements scalable data pipelines for AI systems using Databricks and Spark",
+      // "Master's degree in Mathematics — brings rigorous analytical thinking"
     ],
     publications: [],
     links: {
       linkedin: "https://www.linkedin.com/in/davidzuma/",
-      github: "https://github.com/davidzumaquero"
     }
   },
   {
@@ -135,7 +135,7 @@ const coreTeam: TeamMember[] = [
     photo: "/images/team/mustafa-bahaaeldin.jpg",
     initials: "MB",
     oneLiner: "Full-stack systems and database architecture",
-    expertise: ["Full-Stack Development", "Database Systems", "API Design"],
+    expertise: ["Full-Stack", "Database", "API Design"],
     bio: "Builds the platform infrastructure at BerlinAGI. Experience in full-stack development, database architecture, and backend systems that enable rapid prototyping and production deployment.",
     previously: "Mercedes-Benz, Valeo",
     achievements: [],
@@ -150,13 +150,14 @@ const coreTeam: TeamMember[] = [
     role: "Operations & Design",
     photo: "/images/team/anna-gulueva.jpg",
     initials: "AG",
-    oneLiner: "Women's Leadership Excellence at ESMT Berlin, 8+ years building user-centric, trust-driven businesses",
-    expertise: ["Operations", "User Experience", "Company Building"],
-    bio: "Ensures BerlinAGI technology is usable, understandable, and trusted. 10+ years translating complex, expert-driven systems into intuitive experiences. Leads operations, product experience, and communication — the bridge between technical development and real-world adoption.",
-    previously: "Inanna GmbH (Founder & CEO)",
+    oneLiner: "Die-hard entrepreneur since age 20, building AI that people love to use",
+    expertise: ["Operations", "User Experience", "Stakeholder"],
+    bio: "Entrepreneur who has never worked as an employee. Started in the beauty industry and brings a practical, user-first mindset to BerlinAGI. Ensures our technology is not just powerful, but loved and trusted by real users. Leads operations, product experience, and go-to-market strategy — translating technical innovation into products people actually want to use.",
+    previously: "Inanna GmbH (Founder & CEO), ESMT Berlin Women's Leadership Excellence",
     achievements: [
-      "Decade of experience building and scaling premium, user-centric businesses",
-      "Focus on trust, clarity, and outcomes in high-stakes environments"
+      // "Decade of independent entrepreneurship across beauty and tech industries",
+      // "Built premium, user-centric businesses from the ground up",
+      // "Practical-first approach: convince users before convincing investors"
     ],
     publications: [],
     links: {
@@ -172,13 +173,13 @@ const advisors: TeamMember[] = [
     role: "Scientific Advisor — Mathematical Foundations",
     photo: null,
     initials: "BJ",
-    oneLiner: "Graph ML and non-Euclidean learning, 50+ publications",
+    oneLiner: " ML research and non-Euclidean learning, 50+ publications",
     expertise: ["Graph Machine Learning", "Non-Euclidean Data", "Clustering Theory"],
     bio: "Advises on mathematical foundations of shared embedding spaces and expert clustering. Professor at OTH Regensburg with PhD from TU Berlin. Leading researcher in statistical pattern recognition on non-Euclidean data.",
     previously: "OTH Regensburg (Professor), TU Berlin (PhD)",
     achievements: [
-      "50+ publications in machine learning theory",
-      "Pioneering work on graph space analysis and structured data learning"
+      // "50+ publications in machine learning theory",
+      // "Pioneering work on graph space analysis and structured data learning"
     ],
     publications: [
       { title: "Statistical Graph Space Analysis", venue: "Pattern Recognition", year: 2016, url: null },
@@ -195,16 +196,16 @@ const advisors: TeamMember[] = [
     role: "Scientific Advisor — Quantitative Modeling",
     photo: null,
     initials: "ML",
-    oneLiner: "Statistical modeling of complex adaptive systems",
+    oneLiner: "Statistical modeling of complex adaptive systems, studied and taught at Harvard, Stanford, and University of California",
     expertise: ["Statistical Modeling", "Population Dynamics", "Computational Methods"],
     bio: "Advises on quantitative methods and dynamics of expert populations. Postdoctoral Scholar at University of Tennessee, formerly Stanford University. Brings rigorous statistical methodology applicable to expert routing and knowledge flow analysis.",
-    previously: "University of Tennessee (Postdoc), Stanford University",
+    previously: "Harvard, Stanford, and University of California",
     achievements: [
-      "Co-authored paper with 799 citations on adaptive dynamics",
-      "Co-developed widely-used Drosophila Recombination Rate Calculator"
+      // "Co-authored paper with 799 citations on adaptive dynamics",
+      // "Co-developed widely-used Drosophila Recombination Rate Calculator"
     ],
     publications: [
-      { title: "High Rate of Recent Transposable Element-Induced Adaptation", venue: "PLoS Biology", year: 2008, url: null }
+      { title: "Coevolution of network and attitudes under competing propaganda machines", venue: "Nature", year: 2025, url: "https://www.nature.com/articles/s44260-025-00033-3" }
     ],
     links: {
       scholar: "https://scholar.google.com/citations?user=nQqrAqsAAAAJ"
@@ -265,7 +266,11 @@ const TeamCard: React.FC<{ member: TeamMember; onClick: () => void }> = ({ membe
 };
 
 const TeamModal = ({ member, onClose }: { member: TeamMember; onClose: () => void }) => {
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
+    setMounted(true);
+
     // Prevent body scroll while modal is open
     const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
@@ -276,7 +281,10 @@ const TeamModal = ({ member, onClose }: { member: TeamMember; onClose: () => voi
     };
   }, []);
 
-  return (
+  // Don't render on server, wait for client mount
+  if (!mounted) return null;
+
+  const modalContent = (
     <div
       className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-charcoal/40 backdrop-blur-sm"
       role="dialog"
@@ -446,6 +454,9 @@ const TeamModal = ({ member, onClose }: { member: TeamMember; onClose: () => voi
       </div>
     </div>
   );
+
+  // Render modal via portal to document.body to escape transform context
+  return createPortal(modalContent, document.body);
 };
 
 export const Team = () => {
@@ -505,7 +516,7 @@ export const Team = () => {
         </div>
 
         {/* Scientific Advisors */}
-        <div>
+        {/* <div>
           <h3 className="font-display font-semibold text-2xl text-charcoal mb-8">
             Scientific Advisors
           </h3>
@@ -518,7 +529,7 @@ export const Team = () => {
               />
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Hiring Banner */}
         <div className="mt-12 bg-warm-gray p-6 rounded-lg border border-soft-gray">

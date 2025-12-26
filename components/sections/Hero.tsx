@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Container } from '../layout/Container';
 import { H1, Body } from '../typography/Typography';
 import { Button } from '../ui/Button';
@@ -18,8 +19,12 @@ export const Hero = () => {
                 BerlinAGI builds modular architectures that scale capability, not compute.
               </Body>
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                <Button variant="primary">Our Approach</Button>
-                <Button variant="secondary">Join Us</Button>
+                <Link href="/thinking/our-mission">
+                  <Button variant="primary">Mission</Button>
+                </Link>
+                <Link href="/jobs">
+                  <Button variant="secondary">Join Us</Button>
+                </Link>
               </div>
             </div>
 
