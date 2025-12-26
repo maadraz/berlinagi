@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Container } from '../layout/Container';
 import { H1, Body } from '../typography/Typography';
 import { Button } from '../ui/Button';
+import { OverlappingSquares } from '../ui/OverlappingSquares';
 
 export const Hero = () => {
   return (
@@ -30,10 +31,17 @@ export const Hero = () => {
 
             {/* Right Illustration: Bauhaus Modular Grid */}
             <div className="relative w-full flex items-center justify-center lg:justify-end mt-8 lg:mt-0">
-               <svg 
-                 viewBox="0 0 500 500" 
+               {/* Background accent - overlapping squares */}
+               <div className="absolute top-0 right-0 -z-10 hidden md:block">
+                 <OverlappingSquares size="large" opacity={0.4} />
+               </div>
+
+               <svg
+                 viewBox="0 0 500 500"
                  className="w-full max-w-[500px] h-auto opacity-90"
                  xmlns="http://www.w3.org/2000/svg"
+                 role="img"
+                 aria-label="Modular AI architecture diagram showing interconnected expert systems and composition layers"
                >
                   {/* Base Grid */}
                   <defs>

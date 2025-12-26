@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { Container } from './Container';
+import { OverlappingSquares } from '@/components/ui/OverlappingSquares';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -94,12 +95,15 @@ export const Navbar = () => {
     <nav className="sticky top-0 z-50 w-full bg-warm-white/95 backdrop-blur-md border-b border-soft-gray h-16 transition-all duration-300">
       <Container className="flex items-center justify-between h-full">
         {/* Wordmark */}
-        <a 
-          href="/" 
+        <a
+          href="/"
           onClick={handleLogoClick}
-          className="font-display font-semibold text-xl tracking-tight text-charcoal hover:opacity-80 transition-opacity select-none group"
+          className="flex items-center gap-2.5 font-display font-semibold text-xl tracking-tight text-charcoal select-none group"
         >
-          Berlin<span className="text-berlin-blue group-hover:text-amber-gold transition-colors duration-300">AGI</span>
+          <OverlappingSquares size="small" className="flex-shrink-0" />
+          <span className="group-hover:opacity-80 transition-opacity">
+            Berlin<span className="text-berlin-blue group-hover:text-amber-gold transition-colors duration-300">AGI</span>
+          </span>
         </a>
 
         {/* Desktop Navigation */}

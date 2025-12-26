@@ -1,6 +1,19 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { Container } from '@/components/layout/Container';
 import { articles } from '@/data/articles';
+
+export const metadata: Metadata = {
+  title: 'Thinking',
+  description:
+    'Research updates, perspectives, and foundational ideas from BerlinAGI. Exploring modular architectures for artificial general intelligence.',
+  openGraph: {
+    title: 'Thinking | BerlinAGI',
+    description:
+      'Research updates, perspectives, and foundational ideas from BerlinAGI. Exploring modular architectures for artificial general intelligence.',
+    url: 'https://berlinagi.com/thinking',
+  },
+};
 
 export default function ThinkingPage() {
   return (

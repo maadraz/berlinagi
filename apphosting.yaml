@@ -15,6 +15,10 @@ env:
     value: mahmoud.draz@energyai.berlin
     availability:
       - RUNTIME
+  - variable: NEXT_PUBLIC_GA_MEASUREMENT_ID
+    value: G-ELZ1YR19J0
+    availability:
+      - RUNTIME
 
   # Grant access to secrets in Cloud Secret Manager.
   # See https://firebase.google.com/docs/app-hosting/configure#secret-parameters

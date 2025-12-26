@@ -46,7 +46,14 @@ export const Approach = () => {
           {/* Right Column: Bauhaus Diagram */}
           <div className="w-full flex items-center justify-center">
              <div className="relative w-full max-w-[500px] aspect-[4/3] bg-warm-gray/30 rounded-sm p-4 md:p-8 border border-soft-gray/50">
-               <svg className="w-full h-full" viewBox="0 0 500 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <svg
+                 className="w-full h-full"
+                 viewBox="0 0 500 360"
+                 fill="none"
+                 xmlns="http://www.w3.org/2000/svg"
+                 role="img"
+                 aria-label="Architecture diagram showing core reasoning model connected to adapter layer, which connects to multiple specialized expert models"
+               >
                   {/* Background Grid Lines for Technical Feel */}
                   <line x1="50" y1="0" x2="50" y2="360" stroke="#E0DED8" strokeWidth="1" />
                   <line x1="180" y1="0" x2="180" y2="360" stroke="#E0DED8" strokeWidth="1" />
